@@ -82,7 +82,7 @@ public class Main {
                     System.out.println("Lista de usuarios");
                     biblioteca.mostrarUsuarios();
                     break;
-                case 7:
+                case 7://Salir
                     exit = true;
                     System.out.println("Saliendo del sistema. ¡Hasta luego!");
                     break;

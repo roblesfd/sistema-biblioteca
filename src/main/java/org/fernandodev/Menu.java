@@ -8,17 +8,29 @@ public class Menu {
     public void eliminarLibroSubmenu( Biblioteca biblioteca) {
         Scanner scanner =  new Scanner(System.in);
         boolean back = false;
+        int opcion=0;
+        boolean camposVacios = false;
+        System.out.println("\n === Submenú eliminar libros ===");
+        System.out.println("Selecciona una opción con el número:");
+        System.out.println("1. Eliminar libro por ISBN");
+        System.out.println("2. Eliminar libro por Titulo");
+        System.out.println("3. Eliminar libro(s) por Autor");
+        System.out.println("4. Regresar");
+
+        while (true) {
+            System.out.print("Ingrese una opción: ");
+            if (scanner.hasNextInt()) {
+                opcion = scanner.nextInt();
+                scanner.nextLine();
+                break;
+            } else {
+                System.out.println("Entrada inválida. Por favor ingrese un número.");
+                scanner.nextLine();
+            }
+        }
 
         while(!back) {
             boolean removed = false;
-            System.out.println("\n === Submenú eliminar libros ===");
-            System.out.println("Selecciona una opción con el número:");
-            System.out.println("1. Eliminar libro por ISBN");
-            System.out.println("2. Eliminar libro por Titulo");
-            System.out.println("3. Eliminar libro(s) por Autor");
-            System.out.println("4. Regresar");
-            int opcion = scanner.nextInt();
-            scanner.nextLine();
             switch (opcion) {
                 case 1: //Eliminar por ISBN
                     System.out.print("Ingrese el ISBN del libro a eliminar: ");
@@ -51,16 +63,28 @@ public class Menu {
     public void listarLibrosSubmenu(Biblioteca biblioteca) {
         Scanner scanner =  new Scanner(System.in);
         boolean back = false;
+        int opcion=0;
+        System.out.println("\n === Submenú listado de Libros ===");
+        System.out.println("Selecciona una opción con el número:");
+        System.out.println("1. Mostrar libros por Título");
+        System.out.println("2. Mostrar libros por Autor");
+        System.out.println("3. Regresar");
+
+        while (true) {
+            System.out.print("Ingrese una opción: ");
+            if (scanner.hasNextInt()) {
+                opcion = scanner.nextInt();
+                scanner.nextLine();
+                break;
+            } else {
+                System.out.println("Entrada inválida. Por favor ingrese un número.");
+                scanner.nextLine();
+            }
+        }
 
         while(!back) {
             boolean changed = false;
-            System.out.println("\n === Submenú listado de Libros ===");
-            System.out.println("Selecciona una opción con el número:");
-            System.out.println("1. Mostrar libros por Título");
-            System.out.println("2. Mostrar libros por Autor");
-            System.out.println("3. Regresar");
-            int opcion = scanner.nextInt();
-            scanner.nextLine();
+
             switch (opcion) {
                 case 1: //Mostrar libros por titulo
                     System.out.print("Ingresa el título del libro: ");
@@ -85,16 +109,28 @@ public class Menu {
     public void listarAutoresSubmenu(Biblioteca biblioteca) {
         Scanner scanner =  new Scanner(System.in);
         boolean back = false;
+        int opcion = 0;
+        System.out.println("\n === Submenú listado Autores ===");
+        System.out.println("Selecciona una opción con el número:");
+        System.out.println("1. Buscar un Autor(es)");
+        System.out.println("2. Mostrar todos los autores");
+        System.out.println("3. Regresar");
+        while (true) {
+            System.out.print("Ingrese una opción: ");
+            if (scanner.hasNextInt()) {
+                opcion = scanner.nextInt();
+                scanner.nextLine();
+                break;
+            } else {
+                System.out.println("Entrada inválida. Por favor ingrese un número.");
+                scanner.nextLine();
+            }
+        }
 
         while(!back) {
             boolean changed = false;
-            System.out.println("\n === Submenú listado Autores ===");
-            System.out.println("Selecciona una opción con el número:");
-            System.out.println("1. Buscar un Autor(es)");
-            System.out.println("2. Mostrar todos los autores");
-            System.out.println("3. Regresar");
-            int opcion = scanner.nextInt();
-            scanner.nextLine();
+
+
             switch (opcion) {
                 case 1: //Buscar autores
                     System.out.print("Ingresa el nombre del autor: ");
