@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GestionPrestamos extends Biblioteca {
-    private Collection<Prestamo> listaPrestamos;
+    private List<Prestamo> listaPrestamos;
 
     public GestionPrestamos() {
         super();
