@@ -48,9 +48,9 @@ public class Main {
                 case 3://Submenu gestion prestamos
                     prestamosSubmenu.gestionPrestamosSubmenu(gestorPrestamos, gestorLibros);
                     break;
-//                case 4://Submenu gestion multas
-//                    menu.gestionUsuariosSubmenu(biblioteca);
-//                    break;
+                case 4://Submenu gestion multas
+                    menu.gestionUsuariosSubmenu(biblioteca);
+                    break;
                 case 5://Salir
                     exit = true;
                     System.out.println("Saliendo del sistema. ¡Hasta luego!");

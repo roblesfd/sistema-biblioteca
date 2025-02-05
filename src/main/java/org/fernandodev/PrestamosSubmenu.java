@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
-public class PrestamosSubmenu {
+public class PrestamosSubmenu extends Menu {
     public void gestionPrestamosSubmenu(GestionPrestamos gestor, GestionLibros gestorLibros) {
         Scanner scanner =  new Scanner(System.in);
         boolean camposVacios;
