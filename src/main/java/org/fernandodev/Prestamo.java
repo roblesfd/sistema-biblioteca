@@ -5,12 +5,12 @@ import java.util.Collection;
 import java.util.UUID;
 
 public class Prestamo {
-    public String id;
-    public String usuarioID;
-    public Libro libroPrestado;
-    public LocalDateTime fechaDePrestamo;
-    public LocalDateTime fechaDeEntrega;
-    public boolean devueltoATiempo;
+    private String id;
+    private String usuarioID;
+    private Libro libroPrestado;
+    private LocalDateTime fechaDePrestamo;
+    private LocalDateTime fechaDeEntrega;
+    private boolean devueltoATiempo;
 
     public Prestamo(String userId, Libro borrrowedBook, LocalDateTime borrowingDate, LocalDateTime returnDate ){
         id = UUID.randomUUID().toString();
@@ -68,5 +68,12 @@ public class Prestamo {
 
     public void setDevueltoATiempo(boolean devueltoATiempo) {
         this.devueltoATiempo = devueltoATiempo;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("ID: %s | ID Usuario: %s | Fecha de prestamo: %s | Fecha de entrega: %s | Libro prestado: %s | Devuelto a tiempo: %s",
+                id, usuarioID, fechaDePrestamo, fechaDeEntrega, libroPrestado, devueltoATiempo ? "Si" : "No"
+        );
     }
 }

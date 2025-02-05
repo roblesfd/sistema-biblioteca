@@ -111,7 +111,7 @@ public class PrestamosSubmenu {
                     System.out.print("Ingrese el ID del usuario: ");
                     String usuarioId = scanner.nextLine();
                     prestamoLista = gestor.buscarPrestamosPorIdUsuario(usuarioId);
-                    System.out.println(!prestamoLista.isEmpty() ? prestamoLista.toString() : "No se encontró ningún préstamo asociado a ese usuario.");
+                    System.out.println(!prestamoLista.isEmpty() ? prestamoLista : "No se encontró ningún préstamo asociado a ese usuario.");
                     break;
                 case 3://Buscar por fecha
                     System.out.print("Ingrese la fecha inicial en formato dd-mm-yyyy: ");
@@ -119,7 +119,7 @@ public class PrestamosSubmenu {
                     System.out.print("Ingrese la fecha final en formato dd-mm-yyyy: ");
                     String fechaFinal = scanner.nextLine();
                     prestamoLista = gestor.buscarPrestamosPorFecha(fechaInicio,fechaFinal);
-                    System.out.println(!prestamoLista.isEmpty() ? prestamoLista.toString() : "No se encontró ningún préstamo dentro de ese periodo.");
+                    System.out.println(!prestamoLista.isEmpty() ? prestamoLista : "No se encontró ningún préstamo dentro de ese periodo.");
                     break;
                 case 4://Regresar a submenu de prestamos
                     back = true;
@@ -220,15 +220,15 @@ public class PrestamosSubmenu {
             switch (opcion) {
                 case 1: //Mostrar prestamos vigentes
                     prestamoLista =  gestor.obtenerPrestamosVigentes();
-                    System.out.println(!prestamoLista.isEmpty()  ? prestamoLista.toString() : "No hay prestamos vigentes");
+                    System.out.println(!prestamoLista.isEmpty()  ? prestamoLista : "No hay prestamos vigentes");
                     break;
                 case 2: //Mostrar prestamos recientes
                     prestamoLista = gestor.obtenerPrestamosRecientes();
-                    System.out.println(!prestamoLista.isEmpty()  ? prestamoLista.toString() : "No hay prestamos recientes");
+                    System.out.println(!prestamoLista.isEmpty()  ? prestamoLista : "No hay prestamos recientes");
                     break;
                 case 3: //Mostrar todos los prestamos
                     prestamoLista = gestor.obtenerPrestamos();
-                    System.out.println(!prestamoLista.isEmpty()  ? prestamoLista.toString() : "No hay prestamos registrados");
+                    System.out.println(!prestamoLista.isEmpty()  ? prestamoLista : "No hay prestamos registrados");
                     break;
                 case 4://Regresar a submenu prestamos
                     back = true;

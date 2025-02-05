@@ -1,14 +1,15 @@
 package org.fernandodev;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         GestionLibros gestorLibros = new GestionLibros();
         GestionUsuarios gestorUsuarios = new GestionUsuarios();
+        GestionPrestamos gestorPrestamos = new GestionPrestamos();
         UsuariosSubmenu usuariosSubmenu = new UsuariosSubmenu();
         LibrosSubmenu librosSubmenu = new LibrosSubmenu();
+        PrestamosSubmenu prestamosSubmenu = new PrestamosSubmenu();
 
         Scanner scanner =  new Scanner(System.in);
         boolean exit = false;
@@ -19,7 +20,7 @@ public class Main {
             System.out.println("Selecciona una opción con el número:");
             System.out.println("1. Gestión de libros");
             System.out.println("2. Gestión de usuarios");
-//            System.out.println("3. Gestión de prestamos");
+            System.out.println("3. Gestión de prestamos");
 //            System.out.println("4. Gestión de multas");
             System.out.println("5. Salir");
             int opcion=0;
@@ -44,9 +45,9 @@ public class Main {
                 case 2://Submenu gestion usuarios
                     usuariosSubmenu.gestionUsuariosSubmenu(gestorUsuarios);
                     break;
-//                case 3://Submenu gestion prestamos
-//                    menu.eliminarLibroSubmenu(biblioteca);
-//                    break;
+                case 3://Submenu gestion prestamos
+                    prestamosSubmenu.gestionPrestamosSubmenu(gestorPrestamos, gestorLibros);
+                    break;
 //                case 4://Submenu gestion multas
 //                    menu.gestionUsuariosSubmenu(biblioteca);
 //                    break;

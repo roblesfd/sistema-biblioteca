@@ -105,7 +105,8 @@ public class UsuariosSubmenu extends Menu{
                 case 1: //Buscar usuario por ID
                     System.out.print("Ingresa el ID del usuario: ");
                     String idUsuario = scanner.nextLine();
-                    gestor.buscarUsuarioPorId(idUsuario);
+                    Usuario usuario =  gestor.buscarUsuarioPorId(idUsuario);
+                    System.out.println(usuario != null ? usuario.toString() :  "No se encontró ningún usuario con ese ID.");
                     break;
                 case 2: //Buscar un usuario por nombre
                     System.out.print("Ingresa el nombre del usuario: ");

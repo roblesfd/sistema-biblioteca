@@ -63,7 +63,7 @@ public class LibrosSubmenu extends Menu{
                     break;
                 case 5://Regresar a menu principal
                     back = true;
-                    System.out.println("Regresando al menú principal");
+                    System.out.println("Regresando al submenú libros");
                     break;
                 default:
                     System.out.println("Opción inválida. Por favor, intenta nuevamente.");
