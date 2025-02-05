@@ -14,5 +14,4 @@ public class Biblioteca {
         return campos.stream()
                 .anyMatch(campo -> campo == null || campo.trim().isEmpty());
     }
-
 }
