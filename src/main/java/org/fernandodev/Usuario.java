@@ -21,38 +21,68 @@ public class Usuario {
         librosPrestados = new ArrayList<>();
     }
 
-    public Usuario anadirNuevo(String name, String firstLastname, String secondLastName, String address) {
-        return new Usuario( name, firstLastname, secondLastName, address);
+    //Getters
+    public String getId() {
+        return id;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
+    }
+
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public ArrayList<Libro> getLibrosPrestados() {
+        return librosPrestados;
+    }
+
+    public boolean getTieneMulta() {
+        return tieneMulta;
+    }
+
+    //Setters
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellidoPaterno(String apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
+    }
+
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setLibrosPrestados(ArrayList<Libro> librosPrestados) {
+        this.librosPrestados = librosPrestados;
+    }
+
+    public void setTieneMulta(boolean tieneMulta) {
+        this.tieneMulta = tieneMulta;
+    }
+
     @Override
     public String toString() {
         return String.format("ID: %s | Nombre: %s | Apellidos: %s | Dirección: %s | Libros prestados: %s | Tiene multa: %s",
                 id, nombre, apellidoPaterno  + " " + apellidoMaterno, direccion, librosPrestados, tieneMulta ? "Si" : "No"
         );
     }
-
-    //public boolean eliminarPorId(String id) {
-    //
-    //    }
-
-//    public void prestarLibro(ArrayList<Libro> librosAPrestar) {
-//        if(debeLibros) {
-//           System.out.println("Este usuario debe libros, prestamo cancelado");
-//        }else{
-//            for(Libro libro: librosAPrestar) {
-//                if(!this.tieneLibro(libro.getIsbn())) {
-//                    librosPrestados.add(libro);
-//                }
-//            }
-//        }
-//    }
-
-//    public boolean tieneLibro (String isbn) {
-//        for (Libro libro: librosPrestados) {
-//            if(libro.getIsbn().equals(isbn)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 }

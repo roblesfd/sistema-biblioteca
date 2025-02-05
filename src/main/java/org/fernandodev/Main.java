@@ -5,8 +5,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Biblioteca biblioteca = Biblioteca.getInstance();
-        Menu menu = new Menu();
+        GestionLibros gestorLibros = new GestionLibros();
+        GestionUsuarios gestorUsuarios = new GestionUsuarios();
+        UsuariosSubmenu usuariosSubmenu = new UsuariosSubmenu();
+        LibrosSubmenu librosSubmenu = new LibrosSubmenu();
+
         Scanner scanner =  new Scanner(System.in);
         boolean exit = false;
 
@@ -14,13 +17,11 @@ public class Main {
         while(!exit) {
             System.out.println("\n === Menu Biblioteca ===");
             System.out.println("Selecciona una opción con el número:");
-            System.out.println("1. Agregar libro(s)");
-            System.out.println("2. Buscar libros");
-            System.out.println("3. Buscar autores");
-            System.out.println("4. Eliminar libro(s)");
-            System.out.println("5. Añadir usuario");
-            System.out.println("6. Mostrar usuarios");
-            System.out.println("7. Salir");
+            System.out.println("1. Gestión de libros");
+            System.out.println("2. Gestión de usuarios");
+//            System.out.println("3. Gestión de prestamos");
+//            System.out.println("4. Gestión de multas");
+            System.out.println("5. Salir");
             int opcion=0;
             boolean camposVacios = false;
 
@@ -37,52 +38,19 @@ public class Main {
             }
 
             switch(opcion) {
-                case 1://Añadir libro
-                    System.out.print("Titulo: ");
-                    String titulo = scanner.nextLine();
-                    System.out.print("Autor: ");
-                    String autor = scanner.nextLine();
-                    System.out.print("ISBN: ");
-                    String isbn = scanner.nextLine();
-                    camposVacios = biblioteca.validarCamposObligatorios(List.of(titulo, autor, isbn));
-                    if(!camposVacios) {
-                        biblioteca.anadirLibro(new Libro(titulo, autor, isbn, true));
-                        System.out.print("Libro agregado exitosamente.");
-                    }else{
-                        System.out.print("No puedes ingresar campos vacios");
-                    }
+                case 1://Submenu de libros
+                    librosSubmenu.gestionLibrosSubmenu(gestorLibros);
                     break;
-                case 2://Submenu Listar libros
-                    menu.listarLibrosSubmenu(biblioteca);
+                case 2://Submenu gestion usuarios
+                    usuariosSubmenu.gestionUsuariosSubmenu(gestorUsuarios);
                     break;
-                case 3://Submenu Listar autores
-                    menu.listarAutoresSubmenu(biblioteca);
-                    break;
-                case 4://Submenu eliminar libros
-                    menu.eliminarLibroSubmenu(biblioteca);
-                    break;
-                case 5://Añadir usuario
-                    System.out.print("Nombre: ");
-                    String nombre = scanner.nextLine();
-                    System.out.print("Apellido Paterno: ");
-                    String apellidoPaterno = scanner.nextLine();
-                    System.out.print("Apellido Materno: ");
-                    String apellidoMaterno = scanner.nextLine();
-                    System.out.print("Dirección: ");
-                    String direccion = scanner.nextLine();
-                    camposVacios = biblioteca.validarCamposObligatorios(List.of(nombre, apellidoPaterno, apellidoMaterno, direccion));
-                    if(!camposVacios) {
-                        biblioteca.anadirUsuario(new Usuario(nombre, apellidoPaterno, apellidoMaterno, direccion));
-                        System.out.print("Usuario agregado exitosamente.");
-                    }else{
-                        System.out.print("No puedes ingresar campos vacíos");
-                    }
-                    break;
-                case 6://Mostrar Usuarios
-                    System.out.println("Lista de usuarios");
-                    biblioteca.mostrarUsuarios();
-                    break;
-                case 7://Salir
+//                case 3://Submenu gestion prestamos
+//                    menu.eliminarLibroSubmenu(biblioteca);
+//                    break;
+//                case 4://Submenu gestion multas
+//                    menu.gestionUsuariosSubmenu(biblioteca);
+//                    break;
+                case 5://Salir
                     exit = true;
                     System.out.println("Saliendo del sistema. ¡Hasta luego!");
                     break;
