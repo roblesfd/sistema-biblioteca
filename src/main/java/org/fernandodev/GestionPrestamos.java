@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GestionPrestamos {
+public class GestionPrestamos extends Biblioteca {
     private Collection<Prestamo> listaPrestamos;
 
     public GestionPrestamos() {
@@ -21,7 +21,7 @@ public class GestionPrestamos {
         listaPrestamos.add(nuevoPrestamo);
     }
 
-    //METODOS ELIMINAR
+    //METODOS BUSCAR
     public Prestamo buscarPrestamoPorId(String idPrestamo){
         List<Prestamo> resultados =  listaPrestamos.stream()
                 .filter(prestamo -> prestamo.getUsuarioID().equalsIgnoreCase((idPrestamo)))
@@ -80,7 +80,7 @@ public class GestionPrestamos {
     }
 
     //METODOS MOSTRAR
-    public List<Prestamo> obtenerPrestamosActivos(){
+    public List<Prestamo> obtenerPrestamosVigentes(){
 
         LocalDateTime fechaHoraActual = LocalDateTime.now();
 
@@ -89,14 +89,10 @@ public class GestionPrestamos {
                 .collect(Collectors.toList());
     }
 
-    public Collection<Prestamo> obtenerPrestamos(){
-        return listaPrestamos;
-    }
-
     //Obtiene los prestamos dentro de una ventana de tiempo de 1 semana
     public List<Prestamo> obtenerPrestamosRecientes(){
         LocalDateTime fechaActual = LocalDateTime.now();
-        LocalDateTime fechaSemanaAnterior = fechaActual.minusWeeks(1);
+        LocalDateTime fechaSemanaAnterior = fechaActual.minusWeeks(2);
 
         return listaPrestamos.stream()
                 .filter(prestamo ->
@@ -104,5 +100,9 @@ public class GestionPrestamos {
                                 prestamo.getFechaDePrestamo().isBefore(fechaActual)
                 )
                 .collect(Collectors.toList());
+    }
+
+    public List<Prestamo> obtenerPrestamos(){
+        return listaPrestamos;
     }
 }

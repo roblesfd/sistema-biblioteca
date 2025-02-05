@@ -185,46 +185,46 @@ public class UsuariosSubmenu extends Menu{
         }
     }
 
-    public void listarAutoresSubmenu(Biblioteca gestor) {
-        Scanner scanner =  new Scanner(System.in);
-        boolean back = false;
-        int opcion = 0;
-        while(!back) {
-            System.out.println("\n === Submenú listado Autores ===");
-            System.out.println("Selecciona una opción con el número:");
-            System.out.println("1. Buscar un Autor(es)");
-            System.out.println("2. Mostrar todos los autores");
-            System.out.println("3. Regresar");
-            while (true) {
-                System.out.print("Ingrese una opción: ");
-                if (scanner.hasNextInt()) {
-                    opcion = scanner.nextInt();
-                    scanner.nextLine();
-                    break;
-                } else {
-                    System.out.println("Entrada inválida. Por favor ingrese un número.");
-                    scanner.nextLine();
-                }
-            }
-
-            boolean changed = false;
-
-            switch (opcion) {
-                case 1: //Buscar autores
-                    System.out.print("Ingresa el nombre del autor: ");
-                    String autor = scanner.nextLine();
-                    gestor.buscarAutores(autor);
-                    break;
-                case 2: //Mostrar todos los autores
-                    gestor.mostrarAutores();
-                    break;
-                case 3://Regresar a menu
-                    back = true;
-                    System.out.println("Regresando al menú principal");
-                    break;
-                default:
-                    System.out.println("Opción inválida. Por favor, intenta nuevamente.");
-            }
-        }
-    }
+//    public void listarAutoresSubmenu(Biblioteca gestor) {
+//        Scanner scanner =  new Scanner(System.in);
+//        boolean back = false;
+//        int opcion = 0;
+//        while(!back) {
+//            System.out.println("\n === Submenú listado Autores ===");
+//            System.out.println("Selecciona una opción con el número:");
+//            System.out.println("1. Buscar un Autor(es)");
+//            System.out.println("2. Mostrar todos los autores");
+//            System.out.println("3. Regresar");
+//            while (true) {
+//                System.out.print("Ingrese una opción: ");
+//                if (scanner.hasNextInt()) {
+//                    opcion = scanner.nextInt();
+//                    scanner.nextLine();
+//                    break;
+//                } else {
+//                    System.out.println("Entrada inválida. Por favor ingrese un número.");
+//                    scanner.nextLine();
+//                }
+//            }
+//
+//            boolean changed = false;
+//
+//            switch (opcion) {
+//                case 1: //Buscar autores
+//                    System.out.print("Ingresa el nombre del autor: ");
+//                    String autor = scanner.nextLine();
+//                    gestor.buscarAutores(autor);
+//                    break;
+//                case 2: //Mostrar todos los autores
+//                    gestor.mostrarAutores();
+//                    break;
+//                case 3://Regresar a menu
+//                    back = true;
+//                    System.out.println("Regresando al menú principal");
+//                    break;
+//                default:
+//                    System.out.println("Opción inválida. Por favor, intenta nuevamente.");
+//            }
+//        }
+//    }
 }

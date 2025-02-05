@@ -7,15 +7,15 @@ import java.util.UUID;
 public class Prestamo {
     public String id;
     public String usuarioID;
-    public Collection<Libro> librosPrestados;
+    public Libro libroPrestado;
     public LocalDateTime fechaDePrestamo;
     public LocalDateTime fechaDeEntrega;
     public boolean devueltoATiempo;
 
-    public Prestamo(String userId, Collection<Libro> borrrowedBooks, LocalDateTime borrowingDate, LocalDateTime returnDate ){
+    public Prestamo(String userId, Libro borrrowedBook, LocalDateTime borrowingDate, LocalDateTime returnDate ){
         id = UUID.randomUUID().toString();
         usuarioID = userId;
-        librosPrestados = borrrowedBooks;
+        libroPrestado = borrrowedBook;
         fechaDePrestamo = borrowingDate;
         fechaDeEntrega = returnDate;
     }
@@ -29,8 +29,8 @@ public class Prestamo {
         return usuarioID;
     }
 
-    public Collection<Libro> getLibrosPrestados() {
-        return librosPrestados;
+    public Libro getLibroPrestado() {
+        return libroPrestado;
     }
 
     public LocalDateTime getFechaDePrestamo() {
@@ -54,8 +54,8 @@ public class Prestamo {
         this.usuarioID = usuarioID;
     }
 
-    public void setLibrosPrestados(Collection<Libro> librosPrestados) {
-        this.librosPrestados = librosPrestados;
+    public void setLibroPrestado(Libro libroPrestado) {
+        this.libroPrestado = libroPrestado;
     }
 
     public void setFechaDePrestamo(LocalDateTime fechaDePrestamo) {
