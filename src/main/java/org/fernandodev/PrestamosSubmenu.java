@@ -14,7 +14,7 @@ public class PrestamosSubmenu extends Menu {
         while(!back) {
             String usuarioId;
             String isbnLibro;
-            System.out.println("\n === Submenú gestión de Prestamos ===");
+            System.out.println(ConsoleColors.BG_BLUE + "=== Submenú gestión de Prestamos ===" + ConsoleColors.RESET);
             System.out.println("Selecciona una opción con el número:");
             System.out.println("1. Añadir un préstamo");
             System.out.println("2. Búsqueda de prestamos");
@@ -46,7 +46,7 @@ public class PrestamosSubmenu extends Menu {
                         LocalDateTime fechaActual = LocalDateTime.now();
                         LocalDateTime fechaEntrega = fechaActual.plusWeeks(1);
 
-                        gestor.anadirPrestamo(new Prestamo(usuarioId, libroAPrestar, fechaActual, fechaEntrega));
+                        gestor.anadirPrestamo(new Prestamo(usuarioId, libroAPrestar.getIsbn(), fechaActual, fechaEntrega));
                         System.out.print("Préstamo registrado exitosamente.");
                     }else{
                         System.out.print("No puedes ingresar campos vacíos y/o no se encontró el libro a prestar");
@@ -81,7 +81,7 @@ public class PrestamosSubmenu extends Menu {
 
         while(!back) {
 
-            System.out.println("\n === Submenú búsqueda de prestamos ===");
+            System.out.println(ConsoleColors.BG_BLUE + "=== Submenú búsqueda de prestamos ===" + ConsoleColors.RESET);
             System.out.println("Selecciona una opción con el número:");
             System.out.println("1. Buscar préstamo por ID de préstamo");
             System.out.println("2. Buscar préstamo por ID de usuario");
@@ -139,7 +139,7 @@ public class PrestamosSubmenu extends Menu {
         while(!back) {
 
             while (true) {
-                System.out.println("\n === Submenú eliminar prestamos ===");
+                System.out.println(ConsoleColors.BG_BLUE + "=== Submenú eliminar prestamos ===" + ConsoleColors.RESET);
                 System.out.println("Selecciona una opción con el número:");
                 System.out.println("1. Eliminar préstamo por ID");
                 System.out.println("2. Eliminar préstamos de un usuario");
@@ -198,7 +198,7 @@ public class PrestamosSubmenu extends Menu {
         List<Prestamo> prestamoLista;
 
         while(!back) {
-            System.out.println("\n === Submenú listado de Prestamos ===");
+            System.out.println(ConsoleColors.BG_BLUE + "=== Submenú listado de Prestamos ===" + ConsoleColors.RESET);
             System.out.println("Selecciona una opción con el número:");
             System.out.println("1. Mostrar prestamos vigentes");
             System.out.println("2. Mostrar prestamos recientes");

@@ -12,6 +12,15 @@ public class Usuario {
     private ArrayList<Libro> librosPrestados;
     private boolean tieneMulta = false;
 
+    public Usuario(String userId, String name, String firstLastname, String secondLastName, String address) {
+        id = userId;
+        nombre = name;
+        apellidoPaterno = firstLastname;
+        apellidoMaterno = secondLastName;
+        direccion = address;
+        librosPrestados = new ArrayList<>();
+    }
+
     public Usuario(String name, String firstLastname, String secondLastName, String address) {
         id = UUID.randomUUID().toString();
         nombre = name;

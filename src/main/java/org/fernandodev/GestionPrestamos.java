@@ -4,12 +4,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class GestionPrestamos extends Biblioteca {
-    private List<Prestamo> listaPrestamos;
+    protected List<Prestamo> listaPrestamos;
 
     public GestionPrestamos() {
         super();

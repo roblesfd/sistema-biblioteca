@@ -7,12 +7,21 @@ import java.util.UUID;
 public class Prestamo {
     private String id;
     private String usuarioID;
-    private Libro libroPrestado;
+    private String libroPrestado;
     private LocalDateTime fechaDePrestamo;
     private LocalDateTime fechaDeEntrega;
     private boolean devueltoATiempo;
 
-    public Prestamo(String userId, Libro borrrowedBook, LocalDateTime borrowingDate, LocalDateTime returnDate ){
+    public Prestamo(String loanId, String userId, String borrrowedBook, LocalDateTime borrowingDate, LocalDateTime returnDate ){
+        id = loanId;
+        usuarioID = userId;
+        libroPrestado = borrrowedBook;
+        fechaDePrestamo = borrowingDate;
+        fechaDeEntrega = returnDate;
+    }
+
+
+    public Prestamo(String userId, String borrrowedBook, LocalDateTime borrowingDate, LocalDateTime returnDate ){
         id = UUID.randomUUID().toString();
         usuarioID = userId;
         libroPrestado = borrrowedBook;
@@ -29,7 +38,7 @@ public class Prestamo {
         return usuarioID;
     }
 
-    public Libro getLibroPrestado() {
+    public String getLibroPrestado() {
         return libroPrestado;
     }
 
@@ -54,7 +63,7 @@ public class Prestamo {
         this.usuarioID = usuarioID;
     }
 
-    public void setLibroPrestado(Libro libroPrestado) {
+    public void setLibroPrestado(String libroPrestado) {
         this.libroPrestado = libroPrestado;
     }
 

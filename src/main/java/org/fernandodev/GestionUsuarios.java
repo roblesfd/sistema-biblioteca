@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GestionUsuarios extends Biblioteca{
-    private Collection<Usuario> listaUsuarios;
+    protected Collection<Usuario> listaUsuarios;
 
     public GestionUsuarios() {
         super();

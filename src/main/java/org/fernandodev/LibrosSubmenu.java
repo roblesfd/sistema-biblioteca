@@ -4,20 +4,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LibrosSubmenu extends Menu{
+    Scanner scanner =  new Scanner(System.in);
+    boolean back = false;
+    int opcion;
+
     public void gestionLibrosSubmenu(GestionLibros gestor) {
-        Scanner scanner =  new Scanner(System.in);
-        boolean camposVacios = false;
-        boolean back = false;
-        int opcion = 0;
+        boolean camposVacios;
 
         while(!back) {
-            String nombreUsuario;
-            String apellidoPaterno;
-            String apellidoMaterno;
-            String direccion;
-            String userId;
-            List<Usuario> usuarioLista;
-            System.out.println("\n === Submenú gestión de Libros ===");
+            System.out.println(ConsoleColors.BG_BLUE +"=== Submenú gestión de Libros ===" + ConsoleColors.RESET);
             System.out.println("Selecciona una opción con el número:");
             System.out.println("1. Añadir un libro");
             System.out.println("2. Búsqueda de libros");
@@ -25,17 +20,8 @@ public class LibrosSubmenu extends Menu{
             System.out.println("4. Mostrar todos los libros");
             System.out.println("5. Regresar");
 
-            while (true) {
-                System.out.print("Ingrese una opción: ");
-                if (scanner.hasNextInt()) {
-                    opcion = scanner.nextInt();
-                    scanner.nextLine();
-                    break;
-                } else {
-                    System.out.println("Entrada inválida. Por favor ingrese un número.");
-                    scanner.nextLine();
-                }
-            }
+            escanearInputOpcion();
+
             switch (opcion) {
                 case 1: //Añadir un libro
                     System.out.print("Titulo: ");
@@ -47,9 +33,9 @@ public class LibrosSubmenu extends Menu{
                     camposVacios = gestor.validarCamposObligatorios(List.of(titulo, autor, isbn));
                     if(!camposVacios) {
                         gestor.anadirLibro(new Libro(titulo, autor, isbn, true));
-                        System.out.print("Libro agregado exitosamente.");
+                        System.out.println("Libro agregado exitosamente.");
                     }else{
-                        System.out.print("No puedes ingresar campos vacios");
+                        System.out.println("No puedes ingresar campos vacios");
                     }
                     break;
                 case 2: //Submenu busqueda de libros
@@ -63,7 +49,7 @@ public class LibrosSubmenu extends Menu{
                     break;
                 case 5://Regresar a menu principal
                     back = true;
-                    System.out.println("Regresando al submenú libros");
+                    System.out.println("Regresando al menú principal");
                     break;
                 default:
                     System.out.println("Opción inválida. Por favor, intenta nuevamente.");
@@ -72,32 +58,17 @@ public class LibrosSubmenu extends Menu{
     }
 
     public void busquedaLibrosSubmenu( GestionLibros gestor) {
-        Scanner scanner =  new Scanner(System.in);
-        boolean back = false;
-        int opcion;
-        boolean camposVacios;
         List<Libro> libroLista;
 
         while(!back) {
-
-            System.out.println("\n === Submenú búsqueda de libros ===");
+            System.out.println(ConsoleColors.BG_BLUE + "=== Submenú búsqueda de libros ===" + ConsoleColors.RESET);
             System.out.println("Selecciona una opción con el número:");
             System.out.println("1. Buscar libro por Titulo");
             System.out.println("2. Buscar libro por Autor");
             System.out.println("3. Buscar libro(s) por ISBN");
             System.out.println("4. Regresar");
 
-            while (true) {
-                System.out.print("Ingrese una opción: ");
-                if (scanner.hasNextInt()) {
-                    opcion = scanner.nextInt();
-                    scanner.nextLine();
-                    break;
-                } else {
-                    System.out.println("Entrada inválida. Por favor ingrese un número.");
-                    scanner.nextLine();
-                }
-            }
+            escanearInputOpcion();
 
             switch (opcion) {
                 case 1: //Buscar por titulo
@@ -129,32 +100,20 @@ public class LibrosSubmenu extends Menu{
     }
 
     public void eliminarLibroSubmenu( GestionLibros gestor) {
-        Scanner scanner =  new Scanner(System.in);
-        boolean back = false;
-        int opcion=0;
 
         while(!back) {
+            System.out.println(ConsoleColors.BG_BLUE + "=== Submenú eliminar libros ===" + ConsoleColors.RESET);
+            System.out.println("Selecciona una opción con el número:");
+            System.out.println("1. Eliminar libro por ISBN");
+            System.out.println("2. Eliminar libro por Titulo");
+            System.out.println("3. Eliminar libro(s) por Autor");
+            System.out.println("4. Regresar");
+            System.out.print("Ingrese una opción: ");
 
-            while (true) {
-                System.out.println("\n === Submenú eliminar libros ===");
-                System.out.println("Selecciona una opción con el número:");
-                System.out.println("1. Eliminar libro por ISBN");
-                System.out.println("2. Eliminar libro por Titulo");
-                System.out.println("3. Eliminar libro(s) por Autor");
-                System.out.println("4. Regresar");
-                System.out.print("Ingrese una opción: ");
+            escanearInputOpcion();
 
-                if (scanner.hasNextInt()) {
-                    opcion = scanner.nextInt();
-                    scanner.nextLine();
-                    break;
-                } else {
-                    System.out.println("Entrada inválida. Por favor ingrese un número.");
-                    scanner.nextLine();
-                }
-            }
+            boolean removed;
 
-            boolean removed = false;
             switch (opcion) {
                 case 1: //Eliminar por ISBN
                     System.out.print("Ingrese el ISBN del libro a eliminar: ");
@@ -185,31 +144,17 @@ public class LibrosSubmenu extends Menu{
     }
 
     public void listarLibrosSubmenu(GestionLibros gestor) {
-        Scanner scanner =  new Scanner(System.in);
-        boolean back = false;
         int opcion=0;
 
         while(!back) {
 
-            System.out.println("\n === Submenú listado de Libros ===");
+            System.out.println(ConsoleColors.BG_BLUE + "=== Submenú listado de Libros ===" + ConsoleColors.RESET);
             System.out.println("Selecciona una opción con el número:");
             System.out.println("1. Mostrar libros por Título");
             System.out.println("2. Mostrar libros por Autor");
             System.out.println("3. Regresar");
 
-            while (true) {
-                System.out.print("Ingrese una opción: ");
-                if (scanner.hasNextInt()) {
-                    opcion = scanner.nextInt();
-                    scanner.nextLine();
-                    break;
-                } else {
-                    System.out.println("Entrada inválida. Por favor ingrese un número.");
-                    scanner.nextLine();
-                }
-            }
-
-            boolean changed = false;
+            escanearInputOpcion();
 
             switch (opcion) {
                 case 1: //Mostrar libros por titulo
@@ -228,6 +173,21 @@ public class LibrosSubmenu extends Menu{
                     break;
                 default:
                     System.out.println("Opción inválida. Por favor, intenta nuevamente.");
+            }
+        }
+    }
+
+    //UTILS
+    public void escanearInputOpcion() {
+        while (true) {
+            System.out.print("Ingrese una opción: ");
+            if (scanner.hasNextInt()) {
+                opcion = scanner.nextInt();
+                scanner.nextLine();
+                break;
+            } else {
+                System.out.println("Entrada inválida. Por favor ingrese un número.");
+                scanner.nextLine();
             }
         }
     }

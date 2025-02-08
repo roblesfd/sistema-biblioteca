@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GestionLibros extends Biblioteca{
-    private Collection<Libro> listaLibros;
+    protected Collection<Libro> listaLibros;
 
     public GestionLibros() {
         super();

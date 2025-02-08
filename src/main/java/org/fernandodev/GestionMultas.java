@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GestionMultas extends Biblioteca{
-    private List<Multa> listaMultas;
+    protected List<Multa> listaMultas;
 
     public GestionMultas() {
         super();
